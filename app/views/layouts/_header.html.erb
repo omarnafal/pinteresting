@@ -1,4 +1,4 @@
-<nav class="navbar navbar-static-top navbar-default">
+<nav class="navbar navbar-static-top navbar-default"> <!-- everything we see in the header page goes here.-->
   <div class="container-fluid">
     <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,6 +17,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <% if user_signed_in? %> <!-- if user is signed in then show the log out option--> 
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %> <!-- in order to destroy something you need to do method delete, this is one of the few cases where you have to do this -->
+           <% else %> <!-- if the user isnt signed in then show the sign in option -->
+          <li><%= link_to "Sign in", destroy_user_session_path %></li> <!-- this shows the sign in option  if the user isnt signed in-->
+          <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

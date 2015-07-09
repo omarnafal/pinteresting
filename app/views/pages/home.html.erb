@@ -1,7 +1,11 @@
 <div class = "jumbotron center">
 	<h1>Welcome to my app!</h1>
+	<% if user_signed_in? %> <!-- here we tell the app that if a user is signed in then direct them to site without having to see the login or sign up page, if theyre not signed in then send them to the log in and sign up page.-->
+	#do something
+	<% else %> <!-- this basically means if the top isnt true redirect them to whats below.-->
 	<p>
-	<%= link_to "Log in" , "#", class: "btn btn-default btn-lg" %>
-	<%= link_to "Sign Up", "#", class: "btn btn-primary btn-lg" %>
+	<%= link_to "Log in" , new_user_session_path, class: "btn btn-default btn-lg" %> <!-- here is where current users can log in -->
+	<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %> <!-- here is where new users can sign up--> 
 	</p>
+	<% end %>
 </div>

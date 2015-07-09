@@ -11,6 +11,10 @@
 	
 	<%= render 'layouts/header' %>
 	<div class="container">
+		<% flash.each do |name,msg| %>
+		<%= content_tag(:div, msg, class: "alert alert-info") %> <!-- here you get a flash message thats colored, it shows up when you already signed in and it wants to let you know youre signed in or lets you know youve successfully signed up-->
+
+		<% end %>
 		<%= yield %>
 	</div>
 
